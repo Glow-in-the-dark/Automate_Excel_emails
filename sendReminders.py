@@ -4,7 +4,7 @@
 import openpyxl, smtplib, sys
 import datetime
 
-whoami = 'gavin.low@greatwhiteproductionsltd.com'
+whoami = 'gavin.low@gmail.com'
 date = datetime.datetime.now().strftime( "%d/%m/%Y %H:%M" )
 # Open the spreadsheet and get the latest dues status.
 wb = openpyxl.load_workbook('duesRecords.xlsx')
@@ -31,7 +31,7 @@ smtpObj.login(whoami, '***')
 
 # Send out reminder emails.
 for name, email in unsentMembers.items():
-    body = 'From:%s\nTo:%s\nDate:%s\nSubject: Corporate Video.\nDear All,\nGood day,\nGreetings from Great White Productions. Hope this email finds you well.\n\nGreat White Productions offer a wide range of professional media production services such as commercial shoots , advertising video , opening ceremony ,and many more.\n\nOur Professional team were invited to Telunas resorts in batam to capture the 10th year anniversary and the opening of the new resort.\n\nShould you require any production services , do feel free to contact us for more details.\n\n\nRegards,\nGavin Low\nBusiness Development Director\nGreat White Productions Ltd.\n140 Paya Lebar Road #10-12 Singapore 409015\nEmail: gavin.low@greatwhiteproductionsltd.com\nWebsite: www.greatwhiteproductionsltd.com' % ( whoami,email,date )
+    body = 'From:%s\nTo:%s\nDate:%s\nSubject: Corporate Video.\nDear All,\nGood day,\nGreetings from Great White Productions. Hope this email finds you well.\n\nShould you require any production services , do feel free to contact us for more details.\n\n\nRegards...\n140 Paya Lebar Road #10-12 Singapore 409015\nEmail: gavin.low@gmail.com\nWebsite: www.gmail.com' % ( whoami,email,date )
     print('Sending email to %s...' % email)
     sendmailStatus = smtpObj.sendmail(whoami, email, body)
 
